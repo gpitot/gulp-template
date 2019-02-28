@@ -48,7 +48,7 @@ gulp.task('sass', function () {
 
 
 gulp.task('scripts', function(cb) {
-    return gulp.src('src/js/*/*')
+    return gulp.src('src/js/**/*')
 		.pipe(babel({
 			presets: ['@babel/env']
 		}))
