@@ -1,62 +1,6 @@
 html, body {
     margin:0;
     padding:0;
-    opacity: .5;
-    box-sizing: border-box;
-    transform: scale(.5);
+    
 }
 
-.grid {
-    margin:50px auto;
-    width:calc(100% - 120px);
-}
-.content {
-    display:grid;
-    grid-column-gap:50px;
-    grid-row-gap:35px;
-    grid-template-columns : [leftcol] 2fr [rightcol] 2fr [endspan] 0;
-
-    grid-template-rows: [header] 100px [body] auto;
-}
-
-.nav {
-    grid-row:header;
-    grid-column: leftcol / endspan;
-    border:solid 1px black;
-    background:red;
-}
-
-.leftcol {
-    grid-row:body;
-    grid-column: leftcol;
-    border:solid 1px black;
-    background:orange;
-    height:500px;
-}
-
-.rightcol {
-    grid-row:body;
-    grid-column: rightcol;
-    border:solid 1px black;
-    background:tomato;
-    height:300px;
-}
-
-
-
-
-.interactive {
-    display:flex;
-
-    flex-direction:column;
-    justify-content:space-around;
-
-    width:300px;
-    margin:auto;
-
-    .card {
-        background:green;
-        width:100%;
-        height:150px;
-    }
-}
