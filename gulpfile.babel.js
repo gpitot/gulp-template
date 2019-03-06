@@ -1,5 +1,4 @@
 var gulp = require('gulp');
-var babel = require('gulp-babel');
 var sass = require('gulp-sass');
 var del = require('del');
 
@@ -9,7 +8,7 @@ var cssmin      = require('gulp-cssnano');
 var rename      = require('gulp-rename');
 var plumber     = require('gulp-plumber');
 var notify      = require('gulp-notify')
-
+const webpack = require('webpack-stream');
 var browserSync = require('browser-sync').create();
  
 sass.compiler = require('node-sass');
@@ -49,9 +48,7 @@ gulp.task('sass', function () {
 
 gulp.task('scripts', function(cb) {
     return gulp.src('src/js/*/*')
-		.pipe(babel({
-			presets: ['@babel/env']
-		}))
+		.pipe(webpack(require('./webpack.config.js') ))
 		.pipe(gulp.dest('build/js'))
 });
 
@@ -67,7 +64,7 @@ gulp.task('images', function() {
 
 
 gulp.task('watch', function(cb) {
-	gulp.watch(['src/*.+(htm|html)', 'src/sass/*.+(scss|sass)', 'src/js/*/*'], gulp.series('scripts', 'sass', 'fonts', 'images', 'html'));
+	gulp.watch(['src/*.+(htm|html)', 'src/sass/*.+(scss|sass)', 'src/js/**', 'src/index.js'], gulp.series('build'));
 	
 	browserSync.init({
 		server: {

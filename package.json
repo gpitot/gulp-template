@@ -4,13 +4,9 @@
   "description": "f1",
   "main": "gulpfile.js",
   "dependencies": {
-    "@babel/core": "^7.2.2",
-    "@babel/register": "^7.0.0",
     "autoprefixer": "^9.4.8",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-register": "^6.26.0",
     "browser-sync": "^2.26.3",
+    "clean-webpack-plugin": "^2.0.0",
     "del": "^3.0.0",
     "gulp": "^4.0.0",
     "gulp-autoprefixer": "^6.0.0",
@@ -23,9 +19,9 @@
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
-    "lodash.throttle": "^4.1.1",
     "npx": "^10.2.0",
-    "run-sequence": "^2.2.1"
+    "run-sequence": "^2.2.1",
+    "webpack-stream": "^5.2.1"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.3.1"
