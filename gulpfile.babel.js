@@ -1,13 +1,11 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
-var del = require('del');
 
 var sourcemaps   = require('gulp-sourcemaps');
 var prefix = require('gulp-autoprefixer');
 var cssmin      = require('gulp-cssnano');
 var rename      = require('gulp-rename');
 var plumber     = require('gulp-plumber');
-var notify      = require('gulp-notify')
 const webpack = require('webpack-stream');
 var browserSync = require('browser-sync').create();
  
@@ -15,13 +13,7 @@ sass.compiler = require('node-sass');
 
 
 var onError = function(err) {
-  notify.onError({
-    title:    "Gulp",
-    subtitle: "Failure!",
-    message:  "Error: <%= error.message %>",
-    sound:    "Basso"
-  })(err);
-  this.emit('end');
+  console.log(err);
 };
 
 
@@ -76,12 +68,7 @@ gulp.task('watch', function(cb) {
 
 
 
-
-gulp.task('clean', function() {
-	return del('build');
-});
-
-gulp.task('build', gulp.series('clean', 'scripts', 'sass', 'fonts', 'images', 'html'), function(cb) {
+gulp.task('build', gulp.series('scripts', 'sass', 'fonts', 'images', 'html'), function(cb) {
 	cb();
 });
 

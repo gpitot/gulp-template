@@ -1,6 +1,106 @@
 html, body {
     margin:0;
     padding:0;
-    height:300vh;
 }
+
+body {
+    background:#e13c3e;
+}
+
+* {
+    box-sizing:border-box;
+}
+
+
+article {
+    display:flex;
+    flex-direction:column;
+    width:1024px;
+    margin:auto;
+    min-height:300px;
+    background : #fdce3b;
+
+
+
+    .instructions {
+        background:white;
+        height:400px;
+    }
+
+
+    .winner {
+        height:400px;
+    }
+
+
+    .tips {
+        height:auto;
+        background:white;
+        position:relative;
+
+        .title {
+            text-align:center;
+        }
+
+        .items {
+            overflow-x:scroll;
+            width:auto;
+            display:flex;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+            .item {
+                width:85%;
+                height:500px;
+                margin:0 25px;
+                background:black;
+                flex: 1 0 auto;
+                scroll-snap-align: center;
+            }
+
+
+            .buffer {
+                width:50px;
+                background:white;
+                flex:1 0 auto;
+            }
+
+            
+        }
+
+        .nav {
+            position:absolute;
+            top:calc(50% - 25px);
+            left:0;
+            width:100%;
+            display:flex;
+            justify-content: space-between;
+            
+
+            .arrow {
+                background:red;
+                height:50px;
+                width:50px;
+
+            }
+        }
+
+        .info {
+
+            width:85%;
+            margin:auto;
+            padding:20px 0;
+            text-align:center;
+        }
+    }
+
+    .entries {
+        height:400px;
+    }
+}
+
 

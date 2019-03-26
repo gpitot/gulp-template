@@ -1,8 +1,6 @@
 
-
-console.log('entry 1234');
-import Canvas from './js/canvas/index';
-Canvas();
+import ArrowClicks from './js/gallery/index';
+import Formstack from './js/upload/formstack';
 
 
-console.log('done1234')
+Formstack();
