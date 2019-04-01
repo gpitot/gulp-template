@@ -20,9 +20,9 @@ let displaying = false;
 const randomNum = Math.ceil((Math.random() * 1000)) + 1000;
 
 //demo url 
-const SPREDFASTSTREAM = `http://api.massrelevance.com/6nbck80kd6/nissan-topshot-wwos-2018-v3.json?tweet_mode=extended&status=1&limit=${randomNum}`
+//const SPREDFASTSTREAM = `http://api.massrelevance.com/6nbck80kd6/nissan-topshot-wwos-2018-v3.json?tweet_mode=extended&status=1&limit=${randomNum}`
 
-//const SPREDFASTSTREAM = `http://api.massrelevance.com/6nbck80kd6/suncorp-netball-2019.json?tweet_mode=extended&status=1&limit=${randomNum}`;
+const SPREDFASTSTREAM = `http://api.massrelevance.com/6nbck80kd6/suncorp-netball-2019.json?tweet_mode=extended&status=1&limit=${randomNum}`;
 
 function decodeContent(content) {
     //get name
@@ -50,17 +50,30 @@ function decodeContent(content) {
 function parseData(data) {
     
     for (let i=0;i<data.length;i++) {
-        const enc = data[i].content ? data[i].content.encoded : '';
-        let post = {
-            ...decodeContent(enc),
-            src : data[i].title
+        if (data[i].network === 'rss') {
+            const enc = data[i].content ? data[i].content.encoded : '';
+            let post = {
+                ...decodeContent(enc),
+                src : data[i].title,
+                type : 'rss'
+            }
+            if (data[i].title) {
+                posts.push(post);
+            }
+        } else if (data[i].network === 'instagram') {
+            posts.push({
+                name : data[i].user.username,
+                caption : data[i].caption.text,
+                type : 'instagram',
+                src : data[i].images.low_resolution.url,
+                href : data[i].link
+            });
         }
-        if (data[i].title) {
-            posts.push(post);
-        }
+        
         
     }
     loading = false;
+    console.log(posts);
     display();
 }
 
@@ -69,7 +82,7 @@ async function getData() {
     try {
         const resp = await window.fetch(SPREDFASTSTREAM, {});
         const data = await resp.json();
-        
+        console.log(data);
         parseData(data);
     } catch(err) {
         console.log(err);
@@ -90,28 +103,59 @@ function display() {
     const postDiv = document.getElementById('posts');
     for (let i=displayIndex;i<displayIndex+10;i++) {
 
-        if (i >= posts.length) break;
+        if (i >= posts.length) {
+            loadmore.style.display = "none";
+            break;
+        }
 
         let outer = document.createElement('div');
         outer.classList.add('post', 'loading');
 
 
 
-        let videoOuter = document.createElement('div');
-        videoOuter.classList.add('video-outer');
-        
-        let vid = document.createElement('video');
-        vid.src = posts[i].src; 
-        //add listener to vid for click
-        videoOuter.addEventListener('click', PlayVideo);
+        let videoOuter;       
 
+        if (posts[i].type === 'rss') {
+            videoOuter = document.createElement('div');
+
+            let vid = document.createElement('video');
+            vid.src = posts[i].src; 
+            //add listener to vid for click
+            videoOuter.addEventListener('click', PlayVideo);
+            videoOuter.appendChild(vid);
+
+            vid.addEventListener('loadeddata', ()=>{   
+                vid.parentElement.parentElement.classList.remove('loading');
+                brick.pack();
+            });
+
+        } else if (posts[i].type === 'instagram') {
+            videoOuter = document.createElement('a');
+            videoOuter.href = posts[i].href;
+            let img = new Image();
+            img.src = posts[i].src;
+            img.classList.add('insta-post');
+            videoOuter.appendChild(img);
+
+            let instaIcon = new Image();
+            instaIcon.src = "images/instagram-icon.png";
+            instaIcon.classList.add('insta-icon');
+
+            videoOuter.appendChild(instaIcon);
+
+            img.onload = ()=> {
+                img.parentElement.parentElement.classList.remove('loading');
+                brick.pack();
+            }
+            
+        }
+        
+        videoOuter.classList.add('video-outer');
 
         //play btn
         let playBtn = new Image();
         playBtn.src = 'images/playbtn.png';
-        playBtn.classList.add('play-btn');
-
-        videoOuter.appendChild(vid);
+        playBtn.classList.add('play-btn');        
         videoOuter.appendChild(playBtn);
 
 
@@ -135,11 +179,6 @@ function display() {
         postDiv.appendChild(outer);
 
         brick.update();
-
-        vid.addEventListener('loadeddata', ()=>{   
-            vid.parentElement.parentElement.classList.remove('loading');
-            brick.pack();
-        });
     }
 
     displayIndex += 10;
