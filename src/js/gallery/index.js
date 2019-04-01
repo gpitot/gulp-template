@@ -1,6 +1,4 @@
 function scrollToItem(itemPosition, numItems, scroller) {
-    console.log(itemPosition, numItems, itemPosition)
-    console.log(scroller.scrollWidth * (itemPosition / numItems))
     scroller.scrollTo({
       left: Math.floor(
         scroller.scrollWidth * (itemPosition / numItems)
@@ -14,9 +12,7 @@ const gallery = document.querySelector('.tips .items');
 const items = document.querySelectorAll('.tips .item');
 const arrows = document.querySelectorAll('.tips .arrow');
 let index = 0;
-console.log(items);
 function arrowClicks() {
-    console.log('arrowClciks');
     arrows[0].addEventListener('click', ()=>{
         let newindex = index -1;
         if (newindex < 0) {
