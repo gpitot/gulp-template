@@ -15,57 +15,143 @@
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+        
+        <div class = "banner">
+            <div class="img-outer">
+                <img src="images/left-girl.jpg" alt="">
+            </div>
+            <div class="middle"></div>
+            <div class="img-outer right">
+                <img src="images/right-girl.jpg" alt="">
+            </div>
+        </div>
 
+
+
+        <section class="intro">
+            <div class="logos">
+                <img src="images/teamgirls.jpg" alt="">
+                <img src="images/netget.jpg" alt="">
+            </div>
+            <h1 class="title">
+                <span>Show us your </span>
+                <span>netty </span>
+                <span>moves</span>
+            </h1>
+            <div class="subtext">
+                <h4>for the trip of a lifetime!</h4>
+                Play your way to a money-can't-buy experience!
+                Simply show us how you play like your favourite netballer – by shooting for the hoop or mimicking their moves – and video the result.
+                Submit your video below for a chance to win prizes including flights and accommodation for the Suncorp Super Netball Grand Final for you and a friend, 
+                a meet and greet with Suncorp Team Girls Ambassador and former Diamonds Captain Laura Geitz, a chance to take part in the coin toss and much, much more!
+            </div>
+        </section>
         
         <article>
+
+            
             <section class="instructions">
 
 
-                <form id = "upload-personal" action="https://ninedigital.formstack.com/forms/index.php" method="post">
+                <div id="details">
+
                     
-                    <input type="hidden" name ="form" value="3400892">
-                    <input type="hidden" name ="viewkey" value="YoTDi6niGO">
-                    <input type="hidden" name ="_submit" value="1">
+                    <h3 class="title">
+                        Instructions
+                    </h3>
+                    <div class="info">
+                        Remember to get a parent or carer to help with filming and uploading, and make sure they agree to the terms and conditions. You can also enter directly from Instagram using the hashtag #SuncorpNettyMove
+                    </div>
 
-                    <label>first name</label>
-                    <input type="text" name="field75865925-first">
-
-                    <label>last name</label>
-                    <input type="text" name="field75865925-last">
-
-                    <label>email</label>
-                    <input type="text" name="field75865926">
-
-                    <label>phone</label>
-                    <input type="text" name="field75865927">
-
-                    <label>tc</label>
-                    <input type="checkbox" name="field75865928">
+                    <div class="steps">
+                        <img src="images/step01.png" alt="">
+                        <img src="images/step02.png" alt="">
+                        <img src="images/step03.png" alt="">
+                    </div>
                     
-                    <input type="submit" value = 'submit'>
-                </form>
+                    <h3>OR</h3>
+
+                    <div class="upload-btn-outer">
+                        <div class="upload-btn" id = "begin-upload">UPLOAD YOUR VIDEO HERE</div>
+                    </div>
+
+                    <div class="tc">Click here for full prize details and terms and conditions.</div>
+
+                </div>
 
 
-                <form id = "upload-video" action="https://ninedigital.formstack.com/forms/index.php" method="post" enctype="multipart/form-data">
-   
-                    <input type="hidden" name ="form" value="3400925">
-                    <input type="hidden" name ="viewkey" value="Bzac7p0VOy">
-                    <input type="hidden" name ="_submit" value="1">
+                <div id="upload">
+                    <form id = "upload-personal" action="https://ninedigital.formstack.com/forms/index.php" method="post">
+                        
+                        <input type="hidden" name ="form" value="3400892">
+                        <input type="hidden" name ="viewkey" value="YoTDi6niGO">
+                        <input type="hidden" name ="_submit" value="1">
 
-                    <label>video</label>
-                    <input type="file" name="field75867599">
+                        <div class="info">
+                            <label>first name</label>
+                            <input type="text" name="field75865925-first">
+                        </div>
+                        
+                        <div class="info">
+                            <label>last name</label>
+                            <input type="text" name="field75865925-last">
+                        </div>
+                        
+                        <div class="info">
+                            <label>email</label>
+                            <input type="text" name="field75865926">
+                        </div>
+                        
+                        <div class="info">
+                            <label>phone</label>
+                            <input type="text" name="field75865927">
+                        </div>
+                        
+                        <div class="full info tc">
+                            <label>I agree with the terms and conditions of this competition</label>
+                            <input type="checkbox" name="field75865928">
+                        </div>
+                        <div class="full info">
+                            <input type="submit" value = 'submit'>
+                        </div>
+                        
+                    </form>
 
-                    <label>name</label>
-                    <input type="text" name="field75867600">
 
-                    <label>caption</label>
-                    <textarea name="field75867601" rows="5" cols="50" maxlength="140" ></textarea>
+                    <form id = "upload-video" action="https://ninedigital.formstack.com/forms/index.php" method="post" enctype="multipart/form-data">
+    
+                        <input type="hidden" name ="form" value="3400925">
+                        <input type="hidden" name ="viewkey" value="Bzac7p0VOy">
+                        <input type="hidden" name ="_submit" value="1">
 
-                    <input type="submit" value = 'submit'>
-                </form>
+                        <div class="info full">
+                            <label>video</label>
+                            <input type="file" name="field75867599">
+                        </div>
+                        
+                        <div class="info full">
+                            <label>name</label>
+                            <input type="text" name="field75867600">
+                        </div>
+                        
+                        <div class="info full">
+                            <label>caption</label>
+                            <textarea name="field75867601" rows="5" cols="50" maxlength="140" ></textarea>
+                        </div>
+
+                        <input id = "personal-entry-id" type="text" name="field75867602" value="">
+                        
+                        <div class="info full">
+                            <input type="submit" value = 'submit'>
+                        </div>
+                        
+                    </form>
+                </div>
 
 
-                
+                <div id="thanks"></div>
+
+                <div id="closed"></div>
 
             </section>
 
@@ -74,24 +160,56 @@
 
 
             <section class="tips">
-                <h3 class="title">Watch our #TeamGirls player tips</h3>
-                <div class="items">
-                    <div class="buffer"></div>
+                <h1 class="title">Watch our Suncorp Team Girls Player Tips</h1>
 
+                <div class="outer-items">
+                    <div class="gradient"></div>
 
-                    <div class="item"></div>
-                    <div class="item"></div>
-                    <div class="item"></div>
-                    <div class="item"></div>
-                    <div class="item"></div>
-                    <div class="item"></div>
+                    <div class="items">
+                        <div class="buffer"></div>
+                        
 
-                    <div class="buffer"></div>
+                        <div class="item">
+                            <video src="videos/LSSUN18-01_TIP_Courtney_MASTER_1.mp4" controls poster='images/posters/courtney.png'></video>
+                        </div>
+                        <div class="item">
+                            <video src="videos/LSSUN18-01_TIP_Gabi_MASTER_1.mp4" controls poster='images/posters/gabi_small.jpg'></video>
+                        </div>
+                        <div class="item">
+                            <video src="videos/LSSUN18-01_TIP_Kelsey_MASTER_1.mp4" controls poster='images/posters/kelsey_small.jpg'></video>
+                        </div>
+                        <div class="item">
+                            <video src="videos/LSSUN18-01_TIP_Steph_MASTER_1.mp4" controls poster='images/posters/steph_small.jpg'></video>
+                        </div>
+                        <div class="item">
+                            <video src="videos/PlayerTip_ChelseaPitman_1.mp4" controls poster='images/posters/chelsea_small.jpg'></video>
+                        </div>
+                        <div class="item">
+                            <video src="videos/PlayerTip_GretelTippet_1.mp4" controls poster='images/posters/gretel_small.jpg'></video>
+                        </div>
+                        <div class="item">
+                            <video src="videos/PlayerTip_HelenHousby_1.mp4" controls poster='images/posters/helen_small.jpg'></video>
+                        </div>
+                        <div class="item">
+                            <video src="videos/PlayerTip_KimberleeGreen_1.mp4" controls poster='images/posters/kimberlee_small.jpg'></video>
+                        </div>
+                        <div class="item">
+                            <video src="videos/PlayerTip_LizWatson_1.mp4" controls poster='images/posters/liz_small.jpg'></video>
+                        </div>
+                        <div class="item">
+                            <video src="videos/PlayerTip_MadiRobinson_1.mp4" controls poster="images/posters/madi_small.jpg"></video>
+                        </div>
+
+                        
+                        <div class="buffer"></div>
+                    </div>
+
+                    <div class="gradient"></div>
                 </div>
 
                 <div class="nav">
-                    <div class="left arrow"></div>
-                    <div class="right arrow"></div>
+                    <div class="left arrow">  </div>
+                    <div class="right arrow">  </div>
                 </div>
                 
                 <div class="info">
@@ -100,11 +218,26 @@
             </section>
 
 
-            <section class="entries"></section>
+            <section class="entries">
+                <h3 class="title"></h3>
+
+                <div id="openvideo">
+                    <div class="video-area">
+                        <video src="" controls></video>
+                        <div class="close-btn"></div>
+                    </div>
+                </div>
+
+                <div id="posts">
+
+                </div>
+
+                <div id="loadmore">load more</div>
+            </section>
 
 
         </article>
-
+        
         <script src = "js/app.bundle.js"></script>
 
        

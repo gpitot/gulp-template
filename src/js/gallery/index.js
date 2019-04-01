@@ -16,6 +16,7 @@ const arrows = document.querySelectorAll('.tips .arrow');
 let index = 0;
 console.log(items);
 function arrowClicks() {
+    console.log('arrowClciks');
     arrows[0].addEventListener('click', ()=>{
         let newindex = index -1;
         if (newindex < 0) {
@@ -37,4 +38,4 @@ function arrowClicks() {
 
 
 
-export default arrowClicks();
+export default arrowClicks;

@@ -1,6 +1,10 @@
-
+import 'whatwg-fetch'
 import ArrowClicks from './js/gallery/index';
-import Formstack from './js/upload/formstack';
+import {DisplaySection} from './js/upload/index';
+import getData from './js/stream/index';
 
 
-Formstack();
+ArrowClicks();
+getData();
+
+DisplaySection();

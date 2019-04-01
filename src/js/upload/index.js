@@ -1,4 +1,4 @@
-import Formstack from './formstack';
+import DisplaySection from './display-section';
 export {
-    Formstack
+    DisplaySection
 }
