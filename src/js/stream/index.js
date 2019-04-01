@@ -14,6 +14,8 @@ example content
 
 let posts = [];
 let displayIndex = 0;
+let loading = true;
+let displaying = false;
 
 const randomNum = Math.ceil((Math.random() * 1000)) + 1000;
 
@@ -58,7 +60,7 @@ function parseData(data) {
         }
         
     }
-
+    loading = false;
     display();
 }
 
@@ -78,6 +80,12 @@ async function getData() {
 
 
 function display() {
+    if (loading || displaying) return;
+    displaying = true;
+    setTimeout(() => {
+        displaying = false;
+    }, 500);
+    loadmore.innerText = "load more"
     //add posts[displayIndex] - posts[displayIndex+10] to #posts area
     const postDiv = document.getElementById('posts');
     for (let i=displayIndex;i<displayIndex+10;i++) {
@@ -142,13 +150,34 @@ const brick = Bricks({
     container : grid,
     packed : 'data-packed',
     sizes : [
-        {columns : 3, gutter : 10}
+        {columns : 1, gutter : 10},
+        {mq : '475px', columns : 2, gutter : 10},
+        {mq : '750px', columns : 3, gutter : 10},
     ],
     position: true
 })
 
 brick.pack()
-document.getElementById('loadmore').addEventListener('click', display);
+const loadmore = document.getElementById('loadmore');
+loadmore.addEventListener('click', display);
 
+
+
+/* scroll to bottom trigger display */
+window.addEventListener('scroll', function() {
+    //check if loadmore button top is >= pageyoffset + height
+    if (loadmore.getBoundingClientRect().top <=  window.innerHeight) {
+        loadmore.innerText = "loading..."
+        setTimeout(display, 500);
+        //display();
+    }
+})
+
+
+
+/* weekly winner play 
+*/
+const winner = document.getElementById('weekly-winner')
+winner.addEventListener('click', PlayVideo);
 
 export default getData;
