@@ -61,13 +61,28 @@ function parseData(data) {
                 posts.push(post);
             }
         } else if (data[i].network === 'instagram') {
-            posts.push({
-                name : data[i].user.username,
-                caption : data[i].caption.text,
-                type : 'instagram',
-                src : data[i].images.low_resolution.url,
-                href : data[i].link
-            });
+            let instathumb;
+            if (data[i].images) {
+                if (data[i].images.low_resolution.url) {
+                    instathumb = data[i].images.low_resolution.url;
+                } else if (data[i].images.standard_resolution.url) {
+                    instathumb = data[i].images.standard_resolution.url;
+                } else {
+                    instathumb = null;
+                }
+            } else {
+                instathumb=null;
+            }
+            if (instathumb) {
+                posts.push({
+                    name : data[i].user.username,
+                    caption : data[i].caption.text,
+                    type : 'instagram',
+                    src : instathumb,
+                    href : data[i].link
+                });
+            }
+            
         }
         
         
