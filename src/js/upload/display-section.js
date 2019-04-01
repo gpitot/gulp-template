@@ -6,10 +6,11 @@ function DisplaySection() {
     function beginUpload() {
         //hide details
         //shopw upload
-        document.getElementById('details').style.display = "none";
-        document.getElementById('upload').style.display = "block";
-    
+        document.getElementById('details').style.maxHeight = "0"
         document.getElementById('upload-personal').style.display = "flex";
+        setTimeout(()=>{
+            document.getElementById('upload').style.maxHeight = "310px";
+        }, 800);        
     }
 
 
