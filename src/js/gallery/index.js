@@ -1,17 +1,12 @@
 
 
-const isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
 
 function scrollToItem(itemPosition, numItems, scroller) {
     const position = Math.floor(scroller.scrollWidth * (itemPosition / numItems));
-    if (isIE11) {
-        scroller.scrollTo(position, 0);
-    } else {
-        scroller.scrollTo({
-            left: position,
-            behavior: 'smooth'
-        })
-    }
+    scroller.scrollTo({
+        left: position,
+        behavior: 'smooth'
+    })
     
 }
 
