@@ -1,12 +1,19 @@
-function scrollToItem(itemPosition, numItems, scroller) {
-    scroller.scrollTo({
-      left: Math.floor(
-        scroller.scrollWidth * (itemPosition / numItems)
-      ),
-      behavior: 'smooth'
-    })
-}
 
+
+const isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
+
+function scrollToItem(itemPosition, numItems, scroller) {
+    const position = Math.floor(scroller.scrollWidth * (itemPosition / numItems));
+    if (isIE11) {
+        scroller.scrollTo(position, 0);
+    } else {
+        scroller.scrollTo({
+            left: position,
+            behavior: 'smooth'
+        })
+    }
+    
+}
 
 const gallery = document.querySelector('.tips .items');
 const items = document.querySelectorAll('.tips .item');
