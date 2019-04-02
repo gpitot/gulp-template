@@ -45,9 +45,9 @@ function DisplaySection() {
     }
 
 
-    function uploadVideo() {
+    function uploadVideo(params) {
         //get unique id of personal details
-        const id = (new URL(window.location.href)).searchParams.get('id');
+        const id = params.id;
         document.getElementById('personal-entry-id').value = id;
         document.getElementById('details').style.maxHeight = "0"
 
@@ -73,6 +73,8 @@ function DisplaySection() {
     const beginUploadBtn = document.getElementById('begin-upload');
     beginUploadBtn.addEventListener('click', beginUpload);
 
+
+    /*
     const view = (new URL(window.location.href)).searchParams.get('view');
     console.log(view);
     if (view === 'video-form') {
@@ -83,10 +85,30 @@ function DisplaySection() {
         thankYou();
     }
 
+    */
+    const params = getParams();
+    console.log(params);
+    if (params.view === 'video-form') {
+        uploadVideo(params);
+    } else if (params.view === 'complete') {
+        thankYou();
+    }
     
 }
 
-
+function getParams() {
+    const url = window.location.href.split('?');
+    let opts;
+    let params = {};
+    if (url.length > 1) {
+        opts = url[1].split('&');
+        for (let i=0;i<opts.length;i++) {
+            const [name, value] = opts[i].split('=');
+            params[name] = value;
+        }
+    }
+    return params;
+}
 
 
 
