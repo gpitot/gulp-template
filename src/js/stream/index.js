@@ -20,17 +20,17 @@ let displaying = false;
 const randomNum = Math.ceil((Math.random() * 1000)) + 1000;
 
 //demo url 
-//const SPREDFASTSTREAM = `https://api.massrelevance.com/6nbck80kd6/nissan-topshot-wwos-2018-v3.json?tweet_mode=extended&status=1&limit=${randomNum}`
+const SPREDFASTSTREAM = `https://api.massrelevance.com/6nbck80kd6/nissan-topshot-wwos-2018-v3.json?tweet_mode=extended&status=1&limit=${randomNum}`
 
-const SPREDFASTSTREAM = `https://api.massrelevance.com/6nbck80kd6/suncorp-netball-2019.json?tweet_mode=extended&status=1&limit=${randomNum}`;
+//const SPREDFASTSTREAM = `https://api.massrelevance.com/6nbck80kd6/suncorp-netball-2019.json?tweet_mode=extended&status=1&limit=${randomNum}`;
 
 function decodeContent(content) {
     //get name
     //find display name:</strong> 
     //get all text until </p>
     
-    const name = find_text("Display Name:</strong>", "</p>");
-    const caption = find_text("Video Caption:</strong>", "</p>")
+    const name = decodeToHTML(find_text("Display Name:</strong>", "</p>"));
+    const caption = decodeToHTML(find_text("Video Caption:</strong>", "</p>"))
 
     return {
         name,
@@ -45,6 +45,13 @@ function decodeContent(content) {
         }
         return '';
     }
+}
+
+
+function decodeToHTML(html) {
+    const txt = document.createElement('textarea');
+    txt.innerHTML = html;
+    return txt.value;
 }
 
 function parseData(data) {
@@ -75,8 +82,8 @@ function parseData(data) {
             }
             if (instathumb) {
                 posts.push({
-                    name : data[i].user.username,
-                    caption : data[i].caption.text,
+                    name : decodeToHTML(data[i].user.username),
+                    caption : decodeToHTML(data[i].caption.text),
                     type : 'instagram',
                     src : instathumb,
                     href : data[i].link
@@ -161,6 +168,12 @@ function display() {
             img.onload = ()=> {
                 img.parentElement.parentElement.classList.remove('loading');
                 brick.pack();
+            }
+
+            img.onerror = () => {
+                //404
+                const o = img.parentElement.parentElement;
+                o.parentElement.removeChild(o);
             }
             
         }
