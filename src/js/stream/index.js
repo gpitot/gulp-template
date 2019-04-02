@@ -20,9 +20,9 @@ let displaying = false;
 const randomNum = Math.ceil((Math.random() * 1000)) + 1000;
 
 //demo url 
-//const SPREDFASTSTREAM = `http://api.massrelevance.com/6nbck80kd6/nissan-topshot-wwos-2018-v3.json?tweet_mode=extended&status=1&limit=${randomNum}`
+//const SPREDFASTSTREAM = `https://api.massrelevance.com/6nbck80kd6/nissan-topshot-wwos-2018-v3.json?tweet_mode=extended&status=1&limit=${randomNum}`
 
-const SPREDFASTSTREAM = `http://api.massrelevance.com/6nbck80kd6/suncorp-netball-2019.json?tweet_mode=extended&status=1&limit=${randomNum}`;
+const SPREDFASTSTREAM = `https://api.massrelevance.com/6nbck80kd6/suncorp-netball-2019.json?tweet_mode=extended&status=1&limit=${randomNum}`;
 
 function decodeContent(content) {
     //get name
