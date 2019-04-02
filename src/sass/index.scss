@@ -101,11 +101,9 @@ article {
     margin:auto;
     max-width:100%;
     background :white;
-    
+    margin-bottom:25px;
 
-    h1, h2, h3, h4 {
-        font-family:'Archer-Bold';
-    }
+    
 
 
 
@@ -118,31 +116,60 @@ article {
 
         #details {
             transition: all 0.5s ease-in;
-            max-height:900px;
+            max-height:650px;
+            
+
+            @media (max-width:450px) {
+                max-height: 1000px;
+            }
+
+            @media (max-width:350px) {
+                max-height:1200px;
+            }
+
             overflow:hidden;
             .title {
                 text-align:center;
                 font-family:'FFAD-Metro';
                 font-size:3rem;
                 letter-spacing: 4px;
+
+                @media (max-width:500px) {
+                    font-size:2rem;
+                    margin:16px auto;
+                }
             }
 
             .info {
                 width:700px;
+                max-width:calc(100% - 30px);
                 margin:auto;
                 text-align: center;
+                line-height: 1.5rem;
+
+                span {
+                    font-family:'Archer-Bold';
+                }
             }
 
             .steps {
                 display:flex;
                 width:600px;
                 margin:50px auto;
-                max-width:100%;
+                max-width:calc(100% - 30px);
                 flex-flow:row wrap;
                 justify-content: space-around;
                 img {
                     align-self: center;
                     display:block;
+                }
+
+                @media (max-width:440px) {
+                    flex-direction:column;
+                    margin-bottom:20px;
+                    img {
+                        margin-bottom:30px;
+                    }
                 }
             }
 
@@ -154,7 +181,13 @@ article {
                 display:flex;
                 justify-content:center;
                 margin:50px 0 10px;
+
+                @media (max-width:500px) {
+                    margin-top:25px;
+                }
+
                 .upload-btn {
+                    text-align:center;
                     transition:all 0.2s ease-in;
                     background: rgb(51,173,132);
                     background: linear-gradient(78deg, rgba(51,173,132,1) 0%, rgba(26,136,100,1) 100%);
@@ -162,10 +195,15 @@ article {
                     font-size: 24px;
                     padding: 18px 40px;
                     cursor:pointer;
-                    
+                    max-width: calc(100% - 20px);
                     &:hover {
                         background: linear-gradient(78deg, rgba(51,173,132,1) 0%, rgba(51,173,132,1) 100%);
                         transform:scale(1.03);
+                    }
+
+
+                    @media (max-width:500px) {
+                        font-size: 16px;
                     }
                 }
             }
@@ -174,7 +212,8 @@ article {
             .tc {
                 text-align:center;
                 text-decoration: underline;
-                margin-bottom:15px;
+                max-width: calc(100% - 20px);
+                margin:0 auto 40px;
                 font-size:14px;
                 cursor:pointer;
             }
@@ -206,6 +245,10 @@ article {
                 display:flex;
                 flex-direction: column;
                 margin-bottom:10px;
+
+                @media (max-width:440px) {
+                    width:calc(100% - 20px);
+                }
             }
 
             .full {
@@ -256,7 +299,40 @@ article {
         }
 
         #thanks {
+            display:none;
+            flex-direction:column;
+            align-items: center;
 
+            .title {
+                font-family:'FFAD-Metro';
+                text-align:center;
+                font-size:2rem;
+            }
+
+            .share {
+                display:flex;
+                justify-content:space-around;
+                width:400px;
+                margin:45px auto;
+                .item {
+                    display: flex;
+                    align-items: center;
+                    font-family:'Archer-Bold';
+                    cursor:pointer;
+                    img {
+                        margin-right:8px;
+                    }
+                }
+            }
+
+            .readmore {
+                margin:40px auto 50px;
+
+                a {
+                    font-family:'Archer-Bold';
+                    color:black;
+                }
+            }
         }
 
 
@@ -275,6 +351,10 @@ article {
             font-family:'FFAD-Metro';
             text-align:center;
             font-size:2rem;
+
+            @media (max-width:430px) {
+                margin-top:80px;
+            }
         }
 
         .winner-icon {
@@ -331,6 +411,10 @@ article {
             font-family: 'FFAD-Metro';
             font-size:2.4rem;
             letter-spacing:2px;
+
+            @media (max-width:500px) {
+                font-size: 1.5rem;
+            }
         }
 
         
@@ -463,6 +547,7 @@ article {
             margin:auto;
             padding:20px 0;
             text-align:center;
+            line-height:1.5rem;
         }
     }
 
@@ -473,6 +558,11 @@ article {
         .title {
             text-align:center;
             font-size:2rem;
+            font-family:'FFAD-Metro';
+
+            @media (max-width:500px) {
+                font-size:1.5rem;
+            }
         }
 
         #openvideo {
@@ -617,8 +707,9 @@ article {
                     padding:10px;
 
                     .name {
-                        font-size:14px;
+                        font-size:16px;
                         font-weight:400;
+                        font-family:'Archer-Bold';
                     }
 
                 }
@@ -662,6 +753,16 @@ article {
         display:flex;
         justify-content:space-around;
         margin:0 0 40px;
+
+        @media (max-width: 475px) {
+            flex-direction:column;
+            justify-content:center;
+            margin-bottom:10px;
+            img {
+                align-self:center;
+                margin-bottom:25px;
+            }
+        }
     }
 
     .title {
@@ -673,6 +774,10 @@ article {
         margin-bottom: 0;
         margin-top:30px;
         line-height: 4rem;
+
+        @media (max-width:500px) {
+            margin-top:0;
+        }
 
         span {
             &:nth-child(2) {
@@ -687,12 +792,17 @@ article {
 
     .subtext {
         width: 420px;
-        max-width: 100%;
+        max-width: calc(100% - 30px);
+        margin:auto;
         text-align:center;
-
+        line-height: 1.5rem;
         h4 {
             font-size:2rem;
             margin:15px 0 25px;
+        }
+
+        span {
+            font-family: 'Archer-Bold';
         }
     }
 }
