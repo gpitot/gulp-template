@@ -95,8 +95,8 @@ h3 {
         //flex : 1 1 0;
         display:flex;
         &:first-child {
-            width:calc(35% - 512px);
-            min-width:450px;
+            width:calc(45% - 512px);
+            min-width:375px;
             max-width:500px;
         }
 
@@ -808,4 +808,89 @@ article {
             font-family: 'Archer-Bold';
         }
     }
+}
+
+
+nav.header {
+	height: 44px;
+	width: 100%;
+	border-bottom: 1px solid rgb(237, 237, 237);
+	display: flex;
+	z-index: 15;
+	background: white;
+	position: fixed;
+    top: 0;
+    transition:transform 0.3s ease-in;
+
+    @media (max-width: 485px) {
+        .item {
+            display: none;
+        }
+    }
+    
+    .headersection {
+        display: flex;
+        justify-content: center;
+        flex: 1;
+    }
+    
+    a {
+        align-self: center;
+    }
+    
+    .headersection:first-child {
+        margin-right: auto;
+    }
+    
+    .headersection:last-child {
+        margin-left: auto;
+    }
+    
+    svg {
+        width: 78px;
+        color: rgb(212, 33, 40);
+        margin: 10px 15px;
+    }
+    
+    a:hover svg g {
+        fill: #c41718;
+    }
+    
+    .header_logo {
+        width: 150px;
+    }
+    
+    .header_logo img {
+        width: 100%;
+    }
+    
+    .home9 svg {
+        width: 78px;
+    }
+    .home9 {
+        margin-right: auto;
+    }
+    
+    .item {
+        display: block;
+    
+        line-height: 44px;
+        color: rgb(152, 152, 152);
+        font-size: 12px;
+        font-weight: bold;
+        margin: 0px 16px;
+        padding: 0px;
+        text-decoration: none;
+        font-family: 'Proxima Nova';
+    }
+    
+    .item:hover {
+        color: black;
+    }
+    
+    .selected {
+        border-bottom: 2px solid rgb(130, 73, 255);
+        color: black;
+    }
+    
 }
