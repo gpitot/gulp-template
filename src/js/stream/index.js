@@ -95,7 +95,6 @@ function parseData(data) {
         
     }
     loading = false;
-    console.log(posts);
     display();
 }
 
@@ -104,7 +103,6 @@ async function getData() {
     try {
         const resp = await window.fetch(SPREDFASTSTREAM, {});
         const data = await resp.json();
-        console.log(data);
         parseData(data);
     } catch(err) {
         console.log(err);
@@ -218,8 +216,8 @@ const brick = Bricks({
     packed : 'data-packed',
     sizes : [
         {columns : 1, gutter : 10},
-        {mq : '475px', columns : 2, gutter : 10},
-        {mq : '750px', columns : 3, gutter : 10},
+        {mq : '670px', columns : 2, gutter : 10},
+        {mq : '1010px', columns : 3, gutter : 10},
     ],
     position: true
 })

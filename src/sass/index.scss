@@ -57,15 +57,28 @@ body {
     }
 }
 
+
+h3 {
+    text-align: center;
+    font-family: 'FFAD-Metro';
+    font-size: 2.1rem;
+    letter-spacing: 2px;
+
+    @media (max-width:500px) {
+        font-size:2rem;
+        margin:16px auto;
+    }
+}
+
 .banner {
     z-index:0;
-    position:fixed;
-    top:150px;
+    position: absolute;
+    top:50px;
     left:0;
     width:100%;
     display :flex;
     justify-content:center;
-   
+    //pointer-events: none;
     @media (max-width:1300px) {
         display:none;
     }
@@ -73,25 +86,64 @@ body {
 
 
     .middle {
-        width:550px;
-        //width:1024px;
+        //width:550px;
+        flex-grow:1;
     }
 
     .right {
-        margin-left:auto;
+        /*
+        @media (min-width:1500px) {
+            width: 
+        }
+        @media (min-width: 1900px) {
+            width:950px;
+        }
+        width:calc(100% - 1400px);
+        */
+        
     }
 
     .img-outer {
-        flex : 1 1 0;
+        //flex : 1 1 0;
+        display:flex;
+        &:first-child {
+            width:calc(35% - 512px);
+            min-width:450px;
+            max-width:500px;
+        }
+
+        &:last-child {
+            width:calc(60% - 512px);
+            min-width:500px;
+            max-width:550px;
+
+            @media (max-width:1500px) {
+                margin-top:75px;
+                min-width:400px;
+            }
+        }
     }
 
     img {
         width:100%;
         display:block;
+        align-self: flex-end;
+    }
+}
+
+.area {
+    position:relative;
+    .background { 
+        background: #e03b3d;
+        height: 100%;
+        position: absolute;
+        width: 100%;
+        top:75px;
     }
 }
 
 article {
+    margin-top:-50px;
     border-top:#ffde67 solid 20px;
     z-index: 1;
     position: relative;
@@ -128,16 +180,10 @@ article {
             }
 
             overflow:hidden;
-            .title {
+            h4 {
+                font-size: 1.5rem;
+                font-family:'Archer-Bold';
                 text-align:center;
-                font-family:'FFAD-Metro';
-                font-size:3rem;
-                letter-spacing: 4px;
-
-                @media (max-width:500px) {
-                    font-size:2rem;
-                    margin:16px auto;
-                }
             }
 
             .info {
@@ -160,6 +206,7 @@ article {
                 flex-flow:row wrap;
                 justify-content: space-around;
                 img {
+                    pointer-events: none;
                     align-self: center;
                     display:block;
                 }
@@ -173,9 +220,7 @@ article {
                 }
             }
 
-            h3 {
-                text-align:center;
-            }
+           
 
             .upload-btn-outer {
                 display:flex;
@@ -192,7 +237,7 @@ article {
                     background: rgb(51,173,132);
                     background: linear-gradient(78deg, rgba(51,173,132,1) 0%, rgba(26,136,100,1) 100%);
                     color:white;
-                    font-size: 24px;
+                    font-size: 1.5rem;
                     padding: 18px 40px;
                     cursor:pointer;
                     max-width: calc(100% - 20px);
@@ -349,31 +394,15 @@ article {
         position:relative;
         min-height:10px;
 
-        .title {
-            font-family:'FFAD-Metro';
-            text-align:center;
-            font-size:2rem;
+        
 
-            @media (max-width:430px) {
-                margin-top:80px;
-            }
-        }
-
-        .winner-icon {
-            position:absolute;
-            top:-25px;
-            right:100px;
-
-            @media (max-width:660px) {
-                right:0;
-            }
-        }
+       
         .video-outer {
             position:relative;
             overflow:hidden;
             width:700px;
             max-width:100%;
-            margin:40px auto;
+            margin:40px auto 70px;
             cursor: pointer;
 
             .play-btn {
@@ -408,16 +437,7 @@ article {
         background:white;
         position:relative;
 
-        .title {
-            text-align:center;
-            font-family: 'FFAD-Metro';
-            font-size:2.4rem;
-            letter-spacing:2px;
-
-            @media (max-width:500px) {
-                font-size: 1.5rem;
-            }
-        }
+       
 
         
         .outer-items {
@@ -477,7 +497,7 @@ article {
 
 
             .buffer {
-                width: calc(15% - 25px);
+                width: calc(12.5% - 25px);
                 background:white;
                 flex:1 0 auto;
 
@@ -557,15 +577,7 @@ article {
         background:white;
         
 
-        .title {
-            text-align:center;
-            font-size:2rem;
-            font-family:'FFAD-Metro';
-
-            @media (max-width:500px) {
-                font-size:1.5rem;
-            }
-        }
+        
 
         #openvideo {
             //dim screen 
@@ -755,6 +767,7 @@ article {
         display:flex;
         justify-content:space-around;
         margin:0 0 40px;
+        pointer-events: none;
 
         @media (max-width: 475px) {
             flex-direction:column;
