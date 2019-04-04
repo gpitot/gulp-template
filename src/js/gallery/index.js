@@ -14,8 +14,12 @@ const gallery = document.querySelector('.tips .items');
 const items = document.querySelectorAll('.tips .item');
 const arrows = document.querySelectorAll('.tips .arrow');
 let index = 0;
+
+let itemWidth = items[0].getBoundingClientRect().width;
+
 function arrowClicks() {
     arrows[0].addEventListener('click', ()=>{
+        index = gallery.scrollLeft / itemWidth;
         let newindex = index -1;
         if (newindex < 0) {
             newindex = items.length - 1;
@@ -25,6 +29,7 @@ function arrowClicks() {
     });
     
     arrows[1].addEventListener('click', ()=>{
+        index = gallery.scrollLeft / itemWidth;
         let newindex = index + 1;
         if (newindex >= items.length) {
             newindex = 0;
