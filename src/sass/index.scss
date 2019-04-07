@@ -309,8 +309,14 @@ article {
                 margin-bottom:10px;
 
                 @media (max-width:440px) {
-                    width:calc(100% - 20px);
+                    width:100%;
                 }
+            }
+
+            .permission {
+                font-weight: 800;
+                font-size: 18px;
+                margin-bottom: 22px;
             }
 
             .full {
@@ -780,6 +786,7 @@ article {
 
     .logos {
         width:450px;
+        height:78px;
         max-width:100%;
         display:flex;
         justify-content:space-around;
@@ -788,6 +795,7 @@ article {
 
         img {
             align-self: center;
+            height:100%;
         }
 
         @media (max-width: 475px) {
