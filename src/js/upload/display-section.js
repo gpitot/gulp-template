@@ -1,12 +1,12 @@
 const heights = {
     upload_personal : [
         {
-            window : 450,
-            height : '510px'
+            window : 500,
+            height : '580px'
         },
         {
             window : 1000,
-            height : '315px'
+            height : '385px'
         }
     ],
     upload_video : [
@@ -61,7 +61,9 @@ function DisplaySection() {
         window.history.pushState({}, "", "/thankyou");
         document.getElementById('details').style.maxHeight = "0"
 
-        
+        const s = document.createElement('script');
+        s.src = "//nexus.ensighten.com/suncorp/sun-bw-prod/Bootstrap.js";
+        document.head.appendChild(s);
 
         setTimeout(()=>{
             document.getElementById('thanks').style.display="flex";
