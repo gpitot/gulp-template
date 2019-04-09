@@ -278,6 +278,8 @@ article {
                 margin:0 auto 40px;
                 font-size:14px;
                 cursor:pointer;
+                display: block;
+                color: inherit;
             }
         }
 
@@ -325,6 +327,10 @@ article {
             }
             .tc {
                 flex-direction: row;
+                a {
+                    color:inherit;
+                }
+                
             }
 
             @media (max-width:500px) {
@@ -791,7 +797,6 @@ article {
         display:flex;
         justify-content:space-around;
         margin:0 0 40px;
-        pointer-events: none;
 
         img {
             align-self: center;
