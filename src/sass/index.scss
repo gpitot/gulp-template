@@ -547,7 +547,7 @@ article {
             width:100%;
             display:flex;
             justify-content: space-between;
-            
+            pointer-events:none;
 
             @media (max-width:600px) { 
                 top:0;
@@ -556,6 +556,7 @@ article {
             }
 
             .arrow {
+                pointer-events: all;
                 background:black;
                 height:80px;
                 width:40px;
