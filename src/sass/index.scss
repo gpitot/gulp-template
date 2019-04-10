@@ -290,7 +290,7 @@ article {
             width:700px;
             max-width:100%;
             margin:auto;
-
+            position:relative;
 
             #personal-entry-id {display:none;}
 
@@ -348,9 +348,10 @@ article {
             }
 
             input[type=submit] {
+                position: relative;
                 width:150px;
                 max-width:100%;
-                margin:15px auto;
+                margin:auto;
                 background:#fdce3b;
                 padding:10px;
                 border:none;
@@ -364,6 +365,36 @@ article {
                 &:hover {
                     transform:scale(1.03);
                 }
+            }
+
+
+            @keyframes uploading {
+                0% {
+                    width:0;
+                }
+                100% {
+                    width:100%;
+                }
+            }
+
+            .uploading {
+
+                &:after {
+                    content:'';
+                    height:5px;
+                    position:absolute;
+                    bottom:0;
+                    left:0;
+                    background: #33ad84;
+                    animation : uploading 4.5s ease-in-out infinite;
+                }
+                
+            }
+
+            .submit-parent {
+                width: 150px;
+                margin: 15px auto;
+                position: relative;
             }
 
             input[type=checkbox] {
