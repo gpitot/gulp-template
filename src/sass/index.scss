@@ -73,7 +73,7 @@ h3 {
 .banner {
     z-index:0;
     position: fixed;
-    top:50px;
+    top:100px;
     left:0;
     width:100%;
     
@@ -114,7 +114,7 @@ h3 {
             margin-left:50px;
 
             @media (max-width:1700px) {
-                margin-top:100px;
+                //margin-top:100px;
             }
 
             @media (max-width:1550px) {
@@ -135,7 +135,7 @@ h3 {
                 margin-top:100px;
             }
 
-            @media (max-width:1500px) {
+            @media (max-width:1550px) {
                 margin-top:75px;
                 min-width:400px;
             }
@@ -419,6 +419,7 @@ article {
 
 
     .winner {
+        display:none;
         background: #fdce3b;
         position:relative;
         min-height:10px;
@@ -774,6 +775,13 @@ article {
                 box-shadow: 0 1px 3px 2px #0000007d;
             }
         }
+
+        .disabled {
+            &:hover {
+                box-shadow:0px 1px 2px 1px #0000007d !important;
+                cursor:not-allowed !important;
+            }
+        }
     }
 }
 
@@ -807,8 +815,10 @@ article {
             flex-direction:column;
             justify-content:center;
             margin-bottom:10px;
+            height:auto;
             img {
                 margin-bottom:25px;
+                height:auto;
             }
         }
     }

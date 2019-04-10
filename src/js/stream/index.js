@@ -123,8 +123,15 @@ function display() {
     const postDiv = document.getElementById('posts');
     for (let i=displayIndex;i<displayIndex+10;i++) {
 
+        if (posts.length === 0) {
+            loadmore.innerText = "No posts yet!";
+            loadmore.classList.add('disabled');
+            break;
+        }
+
         if (i >= posts.length) {
-            loadmore.style.display = "none";
+            loadmore.innerText = "No more posts";
+            loadmore.classList.add('disabled');
             break;
         }
 
