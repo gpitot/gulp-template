@@ -60,11 +60,12 @@ function DisplaySection() {
     function thankYou() {
         window.history.pushState({}, "", "/thankyou");
         document.getElementById('details').style.maxHeight = "0"
-
+        
+        dataLayer.pageName = "in:sun:competition:netballaustralia2019:thank-you";
         const s = document.createElement('script');
         s.src = "//nexus.ensighten.com/suncorp/sun-bw-prod/Bootstrap.js";
         document.head.appendChild(s);
-
+        console.log('dataLayer has been updated: ', dataLayer);
         setTimeout(()=>{
             document.getElementById('thanks').style.display="flex";
             
